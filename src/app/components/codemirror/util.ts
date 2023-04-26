@@ -1,7 +1,7 @@
 import { closeBrackets } from "@codemirror/autocomplete"
 import { defaultKeymap, history, historyKeymap, indentWithTab } from "@codemirror/commands"
 import { Extension } from "@codemirror/state"
-import { EditorView, keymap, lineNumbers, placeholder } from "@codemirror/view"
+import { EditorView, keymap, placeholder } from "@codemirror/view"
 
 export interface DefaultExtensionsOptions {
   placeholderStr?: string
@@ -14,7 +14,6 @@ export const getDefaultExtensions = (options: DefaultExtensionsOptions = {}): Ex
 
   const extentions: Extension[] = [
     history(),
-    lineNumbers(),
     closeBrackets(),
     keymap.of([
       indentWithTab,
@@ -22,19 +21,15 @@ export const getDefaultExtensions = (options: DefaultExtensionsOptions = {}): Ex
       ...historyKeymap,
     ]),
   ]
-  const defaultLightThemeOption = EditorView.theme(
+  const defaultLightThemeOption = EditorView.baseTheme(
     {
       '&': {
         cursor: 'text',
-        backgroundColor: '#fff',
         height: '100%',
       },
       '&.cm-focused': {
         outline: 'none',
       },
-    },
-    {
-      dark: false,
     },
   )
 

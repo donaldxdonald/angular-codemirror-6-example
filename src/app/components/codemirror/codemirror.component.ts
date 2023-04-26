@@ -53,6 +53,8 @@ export class CodemirrorComponent implements AfterViewInit, ControlValueAccessor 
     })
 
     const updateListener = EditorView.updateListener.of(vu => {
+      this._cdr.markForCheck()
+
       if (
         vu.docChanged &&
         typeof this.onChange === 'function'
