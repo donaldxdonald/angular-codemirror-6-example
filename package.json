@@ -28,6 +28,7 @@
     "@codemirror/language-data": "^6.3.0",
     "@codemirror/state": "^6.2.0",
     "@codemirror/view": "^6.10.0",
+    "@vercel/analytics": "^1.0.0",
     "rxjs": "~7.8.0",
     "thememirror": "^2.0.1",
     "tslib": "^2.3.0",
